@@ -13,4 +13,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FixtureWeb.DAL\FixtureWeb.DAL.csproj" />
+  </ItemGroup>
+
 </Project>
