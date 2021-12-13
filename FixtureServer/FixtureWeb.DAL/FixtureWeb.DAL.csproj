@@ -41,7 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Fixture.cs" />
+    <Compile Include="Models\Markets.cs" />
+    <Compile Include="Models\Metadata.cs" />
+    <Compile Include="Models\MetadataCompetitors.cs" />
+    <Compile Include="Models\MetadataCompetitorsChildren.cs" />
+    <Compile Include="Models\MetadataLocation.cs" />
+    <Compile Include="Models\MetadataSport.cs" />
+    <Compile Include="Models\MetadataTiming.cs" />
+    <Compile Include="Models\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
