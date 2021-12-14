@@ -41,7 +41,7 @@ namespace FixtureWeb.Controllers
                 var newFixtureDto = await this.fixtureRepository.CreateAsync(fixtureDto);
                 return CreatedAtAction("CreateFixture", new { id = newFixtureDto.Id }, newFixtureDto);
             }
-            catch(Exception ex)
+            catch
             {
                 return StatusCode(500);
             }
