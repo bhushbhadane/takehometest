@@ -7,6 +7,7 @@ using System.Linq;
 using Fixture.WebPack.Types.DTO;
 using FixtureWeb.Shared.Interfaces;
 using FixtureWeb.DAL.Converters.Dto;
+using FixtureWeb.DAL.Models;
 
 namespace FixtureWeb.DAL.Repositories
 {
@@ -66,9 +67,28 @@ namespace FixtureWeb.DAL.Repositories
             }
         }
 
-        public Task UpdateResultAsync(ResultDto resultDto)
+        public async Task UpdateResultAsync(ResultDto resultDto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = new Result()
+                {
+                     Fixture = this.fixtureDBContext.Fixtures
+                    .Include(_ => _.Markets)
+                    .FirstOrDefault(_ => _.Id == resultDto.Id),
+                };
+
+                foreach (var item in resultDto.Winners)
+                {
+                    result.Market = result.Fixture.Markets.FirstOrDefault(_ => _.Id == item.Id);
+                    this.fixtureDBContext.Results.Add(result);
+                    await this.fixtureDBContext.SaveChangesAsync();
+                }
+            }
+            catch (EntityException)
+            {
+                throw;
+            }
         }
     }
 }

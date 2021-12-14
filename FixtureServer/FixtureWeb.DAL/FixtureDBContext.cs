@@ -10,5 +10,7 @@ namespace FixtureWeb.DAL
         }
 
         public DbSet<Models.Fixture> Fixtures { get; set; }
+
+        public DbSet<Models.Result> Results { get; set; }
     }
 }
