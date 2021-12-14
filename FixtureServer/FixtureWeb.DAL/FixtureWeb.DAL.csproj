@@ -14,8 +14,4 @@
     <ProjectReference Include="..\FixtureWeb.Shared\FixtureWeb.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Converters\Model\" />
-  </ItemGroup>
-
 </Project>
