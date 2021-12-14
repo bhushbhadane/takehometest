@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FixtureWeb.Shared.Interfaces;
 using Fixture.WebPack.Types.DTO;
@@ -40,7 +41,7 @@ namespace FixtureWeb.Controllers
                 var newFixtureDto = await this.fixtureRepository.CreateAsync(fixtureDto);
                 return CreatedAtAction("CreateFixture", new { id = newFixtureDto.Id }, newFixtureDto);
             }
-            catch
+            catch(Exception ex)
             {
                 return StatusCode(500);
             }
